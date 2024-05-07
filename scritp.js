@@ -5,7 +5,7 @@ senhaHeroi = ""
 function jogar(){
     
 }
-
+//atualizar
 function puxarPontos(){
 
 }
