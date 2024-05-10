@@ -3,13 +3,7 @@ const PromptSync = require('prompt-sync')({sigint: true});
 
 var starting = true;
 
-var entrada = PromptSync("alguem ai?");
 var db = [];
-
-
-var loginNome;
-var LoginSenha;
-
 
 function Msg(msg){
   console.log(msg);  
@@ -22,7 +16,7 @@ function login(name,pass){
         nameDb = user[0];
         passDb = user[1];
         score = user[2];
-        Msg(nameDb + " " + passDb + "\n")
+        
         if (name == nameDb && pass == passDb){
             Msg("Logado com Sucesso");
             break;
@@ -64,7 +58,4 @@ function start(){
     };
 };
 
-
-
-console.log(entrada);
 start();
