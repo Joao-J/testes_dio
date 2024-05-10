@@ -37,6 +37,36 @@ function createUser(){
     Msg("Usuario Criado com Sucesso!!");
 }
 
+function menuLogado(){
+    Msg("===================\n 1 - JOGAR \n 2 - VER PONTOS \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
+    var escolha = PromptSync();
+    switch(escolha){
+        case '1':
+        
+        case '2':
+        
+        case '0':
+        starting = false;
+        break
+    }
+}
+
+function Jogar(){
+    var ppt = ['pedra','papel','tesoura']
+    var randomChoice = random(ppt)
+     Msg("===================\n 1 - PEDRA \n 2 - VER PAPEL \n 3 - TESOURA \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
+    var escolha = PromptSync();
+    switch(escolha){
+        case '1':
+        
+        case '2':
+        
+        case '0':
+        starting = false;
+        break
+    }
+}
+
 function start(){
     while(starting == true){
         if(db.length > 0){
