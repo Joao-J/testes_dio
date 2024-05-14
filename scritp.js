@@ -2,7 +2,6 @@
 const PromptSync = require('prompt-sync')({sigint: true});
 
 var starting = true;
-
 var db = [];
 
 function Msg(msg){
@@ -54,8 +53,8 @@ function menuLogado(userCount){
 
 function Jogar(userCount){
     var ppt = ['pedra','papel','tesoura']
-    var randomChoice = random(ppt)
-     Msg("===================\n 1 - PEDRA \n 2 - VER PAPEL \n 3 - TESOURA \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
+    var randomChoice = randomChoice(ppt)
+    Msg("===================\n 1 - PEDRA \n 2 - VER PAPEL \n 3 - TESOURA \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
     var escolha = PromptSync();
     var pontosGanhados = 0;
     var rEscolha = randomChoice(ppt)
