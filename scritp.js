@@ -15,7 +15,6 @@ function login(name,pass){/*Função login que server para analisar
         var user = db[usercount]
         nameDb = user[0];
         passDb = user[1];
-        score = user[2];
         
         if (name == nameDb && pass == passDb){
             Msg("Logado com Sucesso!");
