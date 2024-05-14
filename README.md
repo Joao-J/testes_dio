@@ -1,0 +1,1 @@
+Código com o desafio usando variáveis, operadores, laços  de repetição e estrutura de decisões, sistema de login e registro básico com banco de dados sendo uma array, além do jogo "pedra, papel, tesoura" para definir sua pontuação.  
