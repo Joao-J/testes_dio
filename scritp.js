@@ -19,7 +19,7 @@ function login(name,pass){/*Função login que server para analisar
         
         if (name == nameDb && pass == passDb){
             Msg("Logado com Sucesso!");
-            menuLogado(usercount)
+            menu(usercount)
             break;
         }
         if ((usercount + 1) == db.length){
@@ -39,7 +39,7 @@ ela server para criar um novo usuario*/
     Msg("Usuario Criado com Sucesso!!");
 }
 
-function verPontos(userCount){ /* Função verPontos é a função que mostra o resultado do jogador*/
+function score(userCount){ /* Função score é a função que mostra o resultado do jogador*/
     var nivel = "";
     var nome = db[userCount][0]
     x = db[userCount][2];
@@ -65,16 +65,16 @@ function verPontos(userCount){ /* Função verPontos é a função que mostra o 
 Msg("O Herói de nome ** " + nome + " ** está no nível de ** " + nivel + " **")
 }
 
-function menuLogado(userCount){/* menuLogado, é o menu para quando estiver logado */
+function menu(userCount){/* menu, é o menu para quando estiver logado */
     while(starting){
         Msg("===================\n 1 - JOGAR \n 2 - VER PONTOS \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
         var escolha = PromptSync();
         switch(escolha){
             case '1':
-                Jogar(userCount)
+                play(userCount)
                 break
             case '2':
-                verPontos(userCount)
+                score(userCount)
                 break
             case '0':
                 starting = false;
@@ -83,7 +83,7 @@ function menuLogado(userCount){/* menuLogado, é o menu para quando estiver loga
     }
 }
 
-function Jogar(userCount){/* Jogar é função com jogo PEDRA, PAPEL, TESOURA... 
+function play(userCount){/* play é função com jogo PEDRA, PAPEL, TESOURA... 
 Ganhando ou perdendo pontos*/
     var ppt = ['pedra','papel','tesoura']
 
