@@ -1,14 +1,15 @@
 
-const PromptSync = require('prompt-sync')({sigint: true});
+const PromptSync = require('prompt-sync')({sigint: true}); //Aqui temos a constante para pegar o input do terminal
 
-var starting = true;
-var db = [];
+var starting = true; //Variavel que deixa define se o programa está rodando
+var db = []; //Array que usarei como Banco de dados guardando [nome,senha,pontos] sendo [string,string,integer]
 
-function Msg(msg){
+function Msg(msg){ //Função para deixar menor o comando console.log()
   console.log(msg);  
-};
+}; 
 
-function login(name,pass){
+function login(name,pass){/*Função login que server para analisar
+     se na lista temos algum usuario com o nome e a senha caso tenha mande para o nebuLogado */
     console.clear
     for(usercount = 0; db.length > usercount; usercount++){
         var user = db[usercount]
@@ -27,7 +28,18 @@ function login(name,pass){
     }
 }
 
-function verPontos(userCount){
+function createUser(){ /*Função createUser já está meu alto explicativo 
+ela server para criar um novo usuario*/
+    console.clear
+    Msg("Crie um novo personagem: ");
+    var nome = PromptSync('Nome: ');
+    var senha = PromptSync('Senha: ');
+    db.push([nome,senha,1000]);
+    console.clear
+    Msg("Usuario Criado com Sucesso!!");
+}
+
+function verPontos(userCount){ /* Função verPontos é a função que mostra o resultado do jogador*/
     var nivel = "";
     var nome = db[userCount][0]
     x = db[userCount][2];
@@ -53,17 +65,7 @@ function verPontos(userCount){
 Msg("O Herói de nome ** " + nome + " ** está no nível de ** " + nivel + " **")
 }
 
-function createUser(){
-    console.clear
-    Msg("Crie um novo personagem: ");
-    var nome = PromptSync('Nome: ');
-    var senha = PromptSync('Senha: ');
-    db.push([nome,senha,1000]);
-    console.clear
-    Msg("Usuario Criado com Sucesso!!");
-}
-
-function menuLogado(userCount){
+function menuLogado(userCount){/* menuLogado, é o menu para quando estiver logado */
     while(starting){
         Msg("===================\n 1 - JOGAR \n 2 - VER PONTOS \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
         var escolha = PromptSync();
@@ -81,7 +83,8 @@ function menuLogado(userCount){
     }
 }
 
-function Jogar(userCount){
+function Jogar(userCount){/* Jogar é função com jogo PEDRA, PAPEL, TESOURA... 
+Ganhando ou perdendo pontos*/
     var ppt = ['pedra','papel','tesoura']
 
     Msg("===================\n 1 - PEDRA \n 2 - PAPEL \n 3 - TESOURA \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
@@ -133,7 +136,8 @@ function Jogar(userCount){
    db[userCount][2] += pontosGanhados;
 }
 
-function start(){
+function start(){/* Start é a função inicial que caso não tenha nenhum usuario na nossa array/banco de dados
+ela passa direto para função createUser*/
     while(starting == true){
         if(db.length > 0){
             Msg("===================\n 1 - LOGIN \n 2 - REGISTER \n\n 0 - EXIT \n===================\n Escolha entre as opções: ");
@@ -154,4 +158,4 @@ function start(){
     };
 };
 
-start();
+start();//Puxa a função start
